@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "categories": {
+      ".read": true,
+      ".write": false
+    },
+    "meals": {
+      ".read": true,
+      ".write": false
+    },
+    "orders": {
+      ".read": true,
+      ".write": "auth.uid != null"
+    }
+  }
+}
