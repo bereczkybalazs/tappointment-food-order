@@ -1,16 +1,39 @@
 import React from 'react';
 import {Redirect, Route} from "react-router-dom";
+import firebase from "../../lib/firebase";
 
-const isAuthenticated = () => {
-    return false;
-};
+class AuthRoute extends React.Component {
 
-const AuthRoute = ({ component: Component, ...routeProps }) => (
-    <Route {...routeProps} render={(props) => (
-        isAuthenticated()
-            ? <Component {...props} />
-            : <Redirect to='/login' />
-    )} />
-);
+    constructor (props) {
+        super(props);
+        this.state = {
+            isAuthenticated: false
+        }
+    }
+
+    componentDidMount() {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState((prevState) => {
+                    return {
+                        ...prevState,
+                        isAuthenticated: true
+                    }
+                })
+            }
+        });
+    }
+
+    render() {
+        const Component = this.props.component;
+        return (
+            <Route {...this.props} render={(props) => (
+                this.state.isAuthenticated
+                    ? <Component {...props} />
+                    : <Redirect to='/login' />
+            )} />
+        )
+    }
+}
 
 export default AuthRoute;
