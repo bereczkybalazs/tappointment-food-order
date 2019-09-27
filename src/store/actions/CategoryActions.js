@@ -1,7 +1,7 @@
 import {GET_CATEGORIES_START, GET_CATEGORIES_SUCCESS} from "../constants/CategoryConstants";
 import axios from "../../axios";
 
-export const getCategories = () => {
+export const fetchCategories = () => {
     return dispatch => {
         dispatch({
             type: GET_CATEGORIES_START

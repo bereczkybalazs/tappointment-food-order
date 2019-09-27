@@ -5,7 +5,7 @@ const initialState = {
 };
 
 
-const CategoryReducer = (state = initialState, action) => {
+const AppReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CATEGORIES_SUCCESS:
       return {
@@ -17,4 +17,4 @@ const CategoryReducer = (state = initialState, action) => {
   }
 };
 
-export default CategoryReducer
+export default AppReducer;
