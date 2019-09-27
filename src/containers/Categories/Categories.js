@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {fetchCategories} from "../../store/actions/CategoryActions";
+import {fetchCategories} from "./CategoryActions";
 
 class Categories extends React.Component {
 
@@ -33,7 +33,7 @@ class Categories extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        categories: state.app.categories
+        categories: state.categories.categoryList
     }
 };
 

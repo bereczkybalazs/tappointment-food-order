@@ -1,4 +1,4 @@
-import {GET_CATEGORIES_START, GET_CATEGORIES_SUCCESS} from "../constants/CategoryConstants";
+import {GET_CATEGORIES_START, FETCH_CATEGORIES_SUCCESS} from "./CategoryConstants";
 import axios from "../../axios";
 
 export const fetchCategories = () => {
@@ -9,7 +9,7 @@ export const fetchCategories = () => {
         axios.get('/categories.json')
             .then(response => {
                 dispatch({
-                    type: GET_CATEGORIES_SUCCESS,
+                    type: FETCH_CATEGORIES_SUCCESS,
                     categories: response.data
                 })
             })

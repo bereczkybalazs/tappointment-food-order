@@ -7,12 +7,12 @@ import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunk from "redux-thunk";
-import AppReducer from "./store/reducers/AppReducer";
+import CategoryReducer from "./containers/Categories/CategoryReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-    app: AppReducer
+    categories: CategoryReducer
 });
 
 const store = createStore(
