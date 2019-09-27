@@ -1,5 +1,5 @@
 import {GET_CATEGORIES_START, FETCH_CATEGORIES_SUCCESS} from "./CategoryConstants";
-import axios from "../../axios";
+import axios from "../../lib/axios";
 
 export const fetchCategories = () => {
     return dispatch => {
